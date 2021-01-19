@@ -2,6 +2,7 @@ import random
 from functools import reduce
 
 from Sudoku.Board import *
+from Sudoku.Solver import *
 
 
 class Generator:
