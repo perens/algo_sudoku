@@ -131,6 +131,14 @@ class TabuSolver:
         return True
 
 
+    def get_tabu_lock(self, sudoku):
+        tmp = sudoku.flatten()
+        zeros = (len(tmp) - np.count_nonzero(tmp))
+        if zeros < 5:
+            return 0
+        return (zeros/2)
+
+
     def is_new_fitter(self, best_sudoku, sudoku, row_idx, col_idx):
         if self.is_valid(sudoku,  row_idx, col_idx, True):
             best_filled  = np.count_nonzero(best_sudoku)
@@ -201,7 +209,6 @@ class TabuSolver:
                             self.tabu_sudokus.append(best_sudoku.copy())
                             
                             # lock the position for some cycles
-                            # TODO should consider count of empty cells
-                            tabu_list[row_idx][col_idx] = 10
+                            tabu_list[row_idx][col_idx] = self.get_tabu_lock(sudoku)
                         
         return sudoku
