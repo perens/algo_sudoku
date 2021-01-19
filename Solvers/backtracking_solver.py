@@ -2,7 +2,7 @@ import numpy as np
 import time
 
 
-class Backtracking:
+class BacktrackingSolver:
 
   dimension = 9
   possible_nrs = [x for x in range(1, 10)]

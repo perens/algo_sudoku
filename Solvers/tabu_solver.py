@@ -2,7 +2,7 @@ import numpy as np
 import random
 import time
 
-class Tabu:
+class TabuSolver:
 
     possible_values = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 

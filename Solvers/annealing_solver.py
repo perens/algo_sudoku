@@ -4,7 +4,7 @@ import random
 import time
 
 
-class Annealing:
+class AnnealingSolver:
 
     # 3*81: rows, cols, 3x3
     optimal_energy = -243
