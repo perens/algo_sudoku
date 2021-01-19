@@ -8,7 +8,7 @@ class Backtracking:
   possible_nrs = [x for x in range(1, 10)]
 
   def is_complete(self, sudoku, i, j):
-      if not is_valid(sudoku, i, j):
+      if not self.is_valid(sudoku, i, j):
         return False
       
       for row in sudoku:
@@ -115,7 +115,7 @@ class Backtracking:
               k = 0
               l = 0
             
-            if solve(sudoku, 1, k, l):
+            if self.solve_sudoku(sudoku, 1, k, l):
               return True
             else:
               # try next color
@@ -135,4 +135,4 @@ class Backtracking:
 
   def solve(self, sudoku):
     self.solve_sudoku(sudoku, 1, 0, 0)
-    return sudoku
+    return sudoku.flatten()
