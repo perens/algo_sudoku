@@ -176,8 +176,8 @@ class AnnealingSolver:
                 
                 # found the solution
                 if energy_new == self.optimal_energy:
-                    print('solution with temp', temp)
-                    print('remaining epochs', epoch)
+                    # print('solution with temp', temp)
+                    # print('remaining epochs', epoch)
                     return next_neigbhour.flatten()
                 
                 delta_energy = energy_current - energy_new
