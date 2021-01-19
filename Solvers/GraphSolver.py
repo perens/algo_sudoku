@@ -91,7 +91,7 @@ class GraphSolver:
             for color_value in row:
                 vertices_sudoku.append(Vertex(color_value))
 
-        return np.array(vertices_sudoku).reshape(dimension, dimension)
+        return np.array(vertices_sudoku).reshape(self.dimension, self.dimension)
 
 
     def create_adjacency_links(self, sudoku):
@@ -146,7 +146,7 @@ class GraphSolver:
         self.create_adjacency_links(sudoku)
         vertices = sudoku.flatten()
         self.color_vertices(sudoku, vertices, 1, 0)
-        return self.get_graph_array(sudoku)
+        return np.array(self.get_graph_array(sudoku)).reshape(self.dimension, self.dimension)
 
 
 class Vertex():

@@ -167,18 +167,16 @@ class AnnealingSolver:
         current_best = sudoku.copy()
         self.fill_empty_with_random(current_best, fixed_positions)
 
-        max_temp = 20
+        max_temp = 200
         for temp in range(max_temp, 0, -1):
-            for epoch in range(10000):
+            for epoch in range(1000):
                 energy_current = self.calc_energy(current_best)
                 next_neigbhour = self.create_random_neighbor(current_best.copy(), fixed_positions)
                 energy_new = self.calc_energy(next_neigbhour)
                 
                 # found the solution
                 if energy_new == self.optimal_energy:
-                    # print('solution with temp', temp)
-                    # print('remaining epochs', epoch)
-                    return next_neigbhour.flatten()
+                    return next_neigbhour
                 
                 delta_energy = energy_current - energy_new
                 r = random.random()
@@ -186,3 +184,6 @@ class AnnealingSolver:
                     current_best = next_neigbhour.copy()
                 elif delta_energy != 0 and exp((delta_energy*max_temp)/(temp)) > r:
                     current_best = next_neigbhour.copy()
+        
+        # didn't solve
+        return original_sudoku

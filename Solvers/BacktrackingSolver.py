@@ -7,10 +7,7 @@ class BacktrackingSolver:
   dimension = 9
   possible_nrs = [x for x in range(1, 10)]
 
-  def is_complete(self, sudoku, i, j):
-      if not self.is_valid(sudoku, i, j):
-        return False
-      
+  def is_complete(self, sudoku):
       for row in sudoku:
         for val in row:
           if val == 0:
@@ -101,7 +98,7 @@ class BacktrackingSolver:
             c += 1
             
           else:
-            if self.is_complete(sudoku, i, j):
+            if self.is_complete(sudoku):
               return True
             
             # new indexes for backtracking
@@ -125,14 +122,6 @@ class BacktrackingSolver:
                 return False
 
 
-  def print_sudoku(self, sudoku):
-    for row in sudoku:
-      r = []
-      for col in row:
-        r.append(col)
-      print(r)
-    
-
   def solve(self, sudoku):
     self.solve_sudoku(sudoku, 1, 0, 0)
-    return sudoku.flatten()
+    return sudoku
