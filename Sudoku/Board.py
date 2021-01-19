@@ -142,7 +142,7 @@ class Board:
         html += "</table>"
         return html
 
-    def get_array(self):
+    def get_board_array(self):
         output = []
         for index, row in self.rows.items():
             for x in row:
