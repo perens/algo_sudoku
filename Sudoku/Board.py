@@ -141,3 +141,10 @@ class Board:
             html += row_string % tuple(values)
         html += "</table>"
         return html
+
+    def get_array(self):
+        output = []
+        for index, row in self.rows.items():
+            for x in row:
+                output.append(x.value)
+        return output
