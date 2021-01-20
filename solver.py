@@ -22,7 +22,6 @@ class Solver:
         self.solve_and_report(AnnealingSolver(), sudoku, 'Simulated Annealing')
         self.solve_and_report(BacktrackingSolver(), sudoku, 'Backtracking')
         self.solve_and_report(GraphSolver(), sudoku, 'Graph coloring with backtracking')
-        self.solve_and_report(TabuSolver(), sudoku, 'Tabu search')
 
 
     def solve_and_report(self, solver, sudoku, method):
