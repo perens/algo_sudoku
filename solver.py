@@ -14,14 +14,7 @@ class Solver:
 
     # solve with every solver, report result, report time
     def solve(self):
-        sudoku = self.generate_sudoku(self.difficulty)
-        
-        zeros = np.count_nonzero(sudoku)
-        print('nulle: ', zeros)
-
-        print('Sudoku to solve')
         self.print_sudoku(sudoku)
-        
         self.solve_and_report(AnnealingSolver(), sudoku, 'Simulated Annealing')
         self.solve_and_report(BacktrackingSolver(), sudoku, 'Backtracking')
         self.solve_and_report(GraphSolver(), sudoku, 'Graph coloring with backtracking')
