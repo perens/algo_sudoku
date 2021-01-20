@@ -1,4 +1,4 @@
-# Algorithmics project
+# Shuffle and color a Sudoku - Algorithmics project
 
 
 Sudoku solving with currently three methods:
