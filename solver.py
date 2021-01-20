@@ -14,6 +14,7 @@ class Solver:
 
     # solve with every solver, report result, report time
     def solve(self):
+        sudoku = self.generate_sudoku(self.difficulty)
         self.print_sudoku(sudoku)
         self.solve_and_report(AnnealingSolver(), sudoku, 'Simulated Annealing')
         self.solve_and_report(BacktrackingSolver(), sudoku, 'Backtracking')
