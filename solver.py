@@ -5,7 +5,6 @@ from Sudoku.Generator import *
 from Solvers.AnnealingSolver import AnnealingSolver
 from Solvers.BacktrackingSolver import BacktrackingSolver
 from Solvers.GraphSolver import GraphSolver
-from Solvers.TabuSolver import TabuSolver
 
 
 class Solver:
@@ -16,6 +15,10 @@ class Solver:
     # solve with every solver, report result, report time
     def solve(self):
         sudoku = self.generate_sudoku(self.difficulty)
+        
+        zeros = np.count_nonzero(sudoku)
+        print('nulle: ', zeros)
+
         print('Sudoku to solve')
         self.print_sudoku(sudoku)
         
